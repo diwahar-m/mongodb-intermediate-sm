@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require('mongoose');
 const productRouters = require("./routers/product-routers")
+const bookRouters = require("./routers/book-router")
 
 const app = express();
 
@@ -11,7 +12,8 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/products', productRouters)
+app.use('/products', productRouters);
+app.use('/reference', bookRouters);
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, ()=> console.log(`Server running on ${PORT}`));
